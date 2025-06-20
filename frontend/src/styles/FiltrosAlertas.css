@@ -1,0 +1,68 @@
+/* src/styles/FiltrosAlertas.css */
+.filtros-alertas {
+  padding: 1rem;
+}
+
+.filtro-grupo {
+  margin-bottom: 1rem;
+}
+
+.filtro-grupo label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--cor-texto-secundaria);
+  margin-bottom: 0.5rem;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: '▼';
+  font-size: 0.8rem;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  color: var(--cor-texto-secundaria);
+  pointer-events: none;
+}
+
+.filtro-grupo select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  background-color: var(--cor-fundo-painel);
+  font-size: 0.95rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* src/styles/FiltrosAlertas.css (Adicionar no final) */
+.toggle-heatmap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--cor-borda);
+}
+.toggle-heatmap label {
+  margin: 0;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+/* Estilização complexa do switch... omitida por brevidade, mas você pode usar uma biblioteca de UI ou um CSS mais simples. */

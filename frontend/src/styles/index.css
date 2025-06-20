@@ -1,0 +1,36 @@
+/* src/styles/index.css */
+
+/* Importa a fonte Inter do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* Importa o CSS do Leaflet para o mapa funcionar corretamente */
+@import "leaflet/dist/leaflet.css";
+
+/* Define as variáveis de cor para o projeto inteiro */
+:root {
+  --cor-fundo: #f4f6f9;
+  --cor-fundo-painel: #ffffff;
+  --cor-borda: #e0e0e0;
+  --cor-texto-primaria: #212529;
+  --cor-texto-secundaria: #6c757d;
+  --cor-primaria: #0052cc; /* Azul SIGMA */
+  --cor-critico: #de350b;
+  --cor-alto: #ff8b00;
+  --cor-medio: #ffc400;
+  --cor-baixo: #0052cc;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-primaria);
+}
+
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+}

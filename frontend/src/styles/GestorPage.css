@@ -1,0 +1,16 @@
+.gestor-layout {
+  display: flex;
+  height: calc(100vh - 60px);
+}
+
+.painel-lateral {
+  width: 350px;
+  padding: 16px;
+  background-color: #f4f6f8;
+  border-right: 1px solid #ccc;
+  overflow-y: auto;
+}
+
+.mapa-container {
+  flex: 1;
+}

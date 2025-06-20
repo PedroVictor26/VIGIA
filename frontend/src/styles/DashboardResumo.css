@@ -1,0 +1,68 @@
+/* src/styles/DashboardResumo.css */
+.dashboard-resumo {
+  padding: 1rem;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+.painel-titulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--cor-texto-primaria);
+  margin-bottom: 1.5rem;
+}
+
+.stat-card {
+  background-color: var(--cor-fundo);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.stat-card span {
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundaria);
+}
+
+.stat-valor {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+  line-height: 1.2;
+}
+
+.lista-prioridades {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item-prioridade {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.95rem;
+}
+
+.legenda {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cor-indicador {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.nome-prioridade {
+  color: var(--cor-texto-primaria);
+}
+
+.valor-prioridade {
+  font-weight: 600;
+  background-color: var(--cor-fundo);
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+}
