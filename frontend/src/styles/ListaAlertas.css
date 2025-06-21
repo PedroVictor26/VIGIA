@@ -1,8 +1,8 @@
 /* src/styles/ListaAlertas.css */
 .lista-alertas-container {
   padding: 1rem;
-  flex-grow: 1; /* Faz a lista ocupar o espaço restante */
-  overflow-y: auto; /* Adiciona scroll se a lista for grande */
+  flex-grow: 1;
+  overflow-y: auto; 
 }
 
 .lista-alertas {
@@ -14,10 +14,17 @@
   gap: 0.75rem;
 }
 
+.painel-titulo {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--cor-texto-primaria);
+  margin-bottom: 0.5rem;
+}
+
 .item-alerta {
   background-color: var(--cor-fundo-painel);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 2rem;
   border-left: 5px solid;
   display: flex;
   justify-content: space-between;
@@ -61,7 +68,7 @@
 .item-tempo {
   font-size: 0.75rem;
   color: var(--cor-texto-secundaria);
-  white-space: nowrap;
+  white-space: wrap;
 }
 
 .item-alerta-vazio {

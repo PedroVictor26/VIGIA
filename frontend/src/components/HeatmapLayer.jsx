@@ -1,17 +1,14 @@
 // src/components/HeatmapLayer.jsx
-
 import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import 'leaflet.heat';
 import L from 'leaflet';
 
-// --- AJUSTE 1: Aumentar a Intensidade de cada ponto ---
-// Multiplicamos os valores para dar mais "peso" a cada alerta.
 const prioridadeParaIntensidade = {
-    'crítico': 5.0,  // Era 1.0
-    'alto': 3.0,     // Era 0.7
-    'médio': 1.5,    // Era 0.4
-    'baixo': 0.5,    // Era 0.2
+    'crítico': 5.0,
+    'alto': 3.0,    
+    'médio': 1.5,
+    'baixo': 0.5,
 };
 
 const HeatmapLayer = ({ alertas }) => {
@@ -35,7 +32,6 @@ const HeatmapLayer = ({ alertas }) => {
 
         if (points.length === 0) return;
 
-        // --- AJUSTE 2: Melhorar as Configurações de Visualização ---
         const heatLayer = L.heatLayer(points, {
             radius: 35,       // Aumenta o raio de influência de cada ponto
             blur: 25,         // Aumenta o desfoque para mesclar melhor os pontos

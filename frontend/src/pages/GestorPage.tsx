@@ -26,7 +26,6 @@ const GestorPage = ({ onNavigate }) => {
     // Referência para a instância do mapa para controle programático (flyTo)
     const mapRef = useRef(null);
 
-    // --- ALTERAÇÃO PRINCIPAL AQUI ---
     // Posição inicial do mapa agora é Brasília
     const position = [-15.7942, -47.8825];
 

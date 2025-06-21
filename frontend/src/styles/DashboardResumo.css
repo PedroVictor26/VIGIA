@@ -5,10 +5,10 @@
 }
 
 .painel-titulo {
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: var(--cor-texto-primaria);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0rem;
 }
 
 .stat-card {
