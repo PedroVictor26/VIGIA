@@ -18,8 +18,10 @@ app = FastAPI(
 # 2. Adicione o CORSMiddleware LOGO EM SEGUIDA
 #    Esta é a parte mais importante para corrigir o erro de conexão do frontend.
 origins = [
-    "http://localhost:5173",  # Endereço padrão do seu frontend React/Vite
-    "http://127.0.0.1:5173", # Adicionar por segurança, às vezes o navegador usa este
+    "http://localhost:5173",  # Porta padrão do Vite
+    "http://localhost:5174",  # Nova porta que o Vite usou
+    "http://127.0.0.1:5173",  # Adicionar por segurança
+    "http://127.0.0.1:5174",  # Adicionar por segurança
 ]
 
 app.add_middleware(

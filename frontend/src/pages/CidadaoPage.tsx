@@ -29,7 +29,7 @@ const CidadaoPage = ({ onNavigate }) => {
     useEffect(() => {
         setMessages([{
             from: 'bot',
-            text: '🛡️ Bem-vindo ao SIGMA – Assistente de Ocorrências. Para começarmos, selecione o tipo de ocorrência.'
+            text: '🛡️ Bem-vindo ao VigIA – Assistente de Ocorrências. Para começarmos, selecione o tipo de ocorrência.'
         }]);
     }, []);
 
@@ -66,18 +66,45 @@ const CidadaoPage = ({ onNavigate }) => {
         }]);
     };
 
-    const capturarLocalizacao = () => {
-        setMessages(prev => [...prev, { from: 'bot', text: '🛰️ Captando sua localização...' }]);
-        navigator.geolocation.getCurrentPosition(
-            ({ coords }) => {
-                setCoordenadas({ latitude: coords.latitude, longitude: coords.longitude });
-                setMessages(prev => [...prev, { from: 'bot', text: '✅ Localização capturada. Se desejar, anexe uma imagem e envie sua denúncia.' }]);
-                setStep(4);
-            },
-            () => {
-                setMessages(prev => [...prev, { from: 'bot', text: '❌ Não foi possível obter sua localização.' }]);
-            }
-        );
+    // const capturarLocalizacao = () => {
+    //     setMessages(prev => [...prev, { from: 'bot', text: '🛰️ Captando sua localização...' }]);
+    //     navigator.geolocation.getCurrentPosition(
+    //         ({ coords }) => {
+    //             setCoordenadas({ latitude: coords.latitude, longitude: coords.longitude });
+    //             setMessages(prev => [...prev, { from: 'bot', text: '✅ Localização capturada. Se desejar, anexe uma imagem e envie sua denúncia.' }]);
+    //             setStep(4);
+    //         },
+    //         () => {
+    //             setMessages(prev => [...prev, { from: 'bot', text: '❌ Não foi possível obter sua localização.' }]);
+    //         }
+    //     );
+    // };
+
+        const capturarLocalizacao = () => {
+        setMessages(prev => [...prev, { from: 'bot', text: '🛰️ Simulando captura de localização em Brasília...' }]);
+
+        // Banco de coordenadas de pontos conhecidos em Brasília
+        const localizacoesBrasilia = [
+            { nome: 'Congresso Nacional', latitude: -15.7996, longitude: -47.8645 },
+            { nome: 'Torre de TV', latitude: -15.789, longitude: -47.892 },
+            { nome: 'Ponte JK', latitude: -15.816, longitude: -47.835 },
+            { nome: 'Catedral Metropolitana', latitude: -15.798, longitude: -47.861 },
+            { nome: 'Parque da Cidade (Estacionamento 4)', latitude: -15.805, longitude: -47.904 },
+            { nome: 'Rodoviária do Plano Piloto', latitude: -15.797, longitude: -47.886 },
+            { nome: 'UNB (Biblioteca Central)', latitude: -15.763, longitude: -47.871 },
+            { nome: 'Taguatinga Centro (Praça do Relógio)', latitude: -15.832, longitude: -48.056 },
+            { nome: 'Águas Claras (Estação Arniqueiras)', latitude: -15.835, longitude: -48.020 },
+        ];
+
+        // Escolhe uma localização aleatória da lista
+        const localizacaoAleatoria = localizacoesBrasilia[Math.floor(Math.random() * localizacoesBrasilia.length)];
+        
+        // Simula um pequeno atraso para parecer mais realista
+        setTimeout(() => {
+            setCoordenadas({ latitude: localizacaoAleatoria.latitude, longitude: localizacaoAleatoria.longitude });
+            setMessages(prev => [...prev, { from: 'bot', text: `✅ Localização definida: ${localizacaoAleatoria.nome}. Se desejar, anexe uma imagem e envie sua denúncia.` }]);
+            setStep(4);
+        }, 1500); // Atraso de 1.5 segundos
     };
 
     const handleFileUpload = (e) => {
@@ -95,11 +122,14 @@ const CidadaoPage = ({ onNavigate }) => {
         setMessages(prev => [...prev, { from: 'bot', text: '📡 Enviando sua denúncia para o SIGMA...' }]);
 
         try {
-            await createAlerta({
-                ...formData,
+            const payload = {
+                description: `[${formData.tipo}] ${formData.descricao}`, // Usa a chave 'description'
                 latitude: coordenadas.latitude,
-                longitude: coordenadas.longitude
-            });
+                longitude: coordenadas.longitude,
+                media_url: formData.media_url || null
+            };
+
+            await createAlerta(payload);
             setMessages(prev => [...prev, { from: 'bot', text: '✅ Comunicação registrada. A equipe responsável foi acionada. Obrigado por colaborar com a segurança urbana.' }]);
             setStep(5);
         } catch (err) {
